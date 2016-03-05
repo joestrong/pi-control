@@ -1,0 +1,14 @@
+{
+  "name": "pi-control",
+  "version": "0.1.0",
+  "description": "Manage remote Raspberry Pi in a GUI",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Joe Strong <joestrong@gmail.com> (https://www.joestrong.co.uk/)",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.10"
+  }
+}
