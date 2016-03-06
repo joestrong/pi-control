@@ -30,11 +30,6 @@ body {
   border-right: 1px solid #aaa;
   box-shadow: 5px 0 5px 0 #ddd
 }
-.nav__item {
-  padding: 10px;
-  border-bottom: 1px solid #aaa;
-  cursor: pointer;
-}
 .main {
   flex: 3;
   overflow-y: auto;

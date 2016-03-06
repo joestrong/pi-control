@@ -1,25 +1,12 @@
 "use strict";
 let exec = require('child_process').exec;
 let config = require('../config.js');
+let Navigation = require('./navigation/Navigation.js');
 
 class Interface {
 
   constructor() {
-    this.buildNav();
-  }
-
-  buildNav() {
-    let navEl = document.querySelector('.nav');
-    for (let i = 0; i < config.machines.length; i++) {
-      let machine = config.machines[i];
-      let el = document.createElement('div');
-      el.className = "nav__item";
-      el.textContent = machine.name;
-      el.addEventListener('click', (e) => {
-        this.buildMain(machine);
-      });
-      navEl.appendChild(el);
-    }
+    this.navigation = new Navigation(document.querySelector('.nav'));
   }
 
   buildMain(machine) {
@@ -38,4 +25,4 @@ class Interface {
   }
 }
 
-new Interface();
+module.exports = Interface;
