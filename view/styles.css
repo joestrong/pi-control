@@ -27,13 +27,26 @@ body {
 .nav {
   flex: 1;
   overflow-y: auto;
-  border-right: 1px solid black;
+  border-right: 1px solid #aaa;
+  box-shadow: 5px 0 5px 0 #ddd
 }
 .nav__item {
   padding: 10px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #aaa;
+  cursor: pointer;
 }
 .main {
   flex: 3;
   overflow-y: auto;
+}
+.bar {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  min-height: 39px;
+}
+.bar .name {
+  flex: 1;
+}
+.bar .disk-usage {
 }

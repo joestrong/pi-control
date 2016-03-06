@@ -6,16 +6,16 @@ class Application {
   constructor() {
     this.app = electron.app;
     this.view = 'file://' + __dirname + '/../view/index.html';
+    this.debug = false;
     this.bindEvents();
   }
 
   createWindow() {
     const BrowserWindow = electron.BrowserWindow;
-    const Debug = true;
 
     this.mainWindow = new BrowserWindow({ width: 800, height: 600 });
     this.mainWindow.loadURL(this.view);
-    if (Debug) {
+    if (this.debug) {
       this.mainWindow.webContents.openDevTools();
     }
     this.mainWindow.on('closed', () => {
