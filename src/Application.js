@@ -1,12 +1,13 @@
 "use strict";
 const electron = require('electron');
+let config = require('../config.js');
 
 class Application {
 
   constructor() {
     this.app = electron.app;
     this.view = 'file://' + __dirname + '/../view/index.html';
-    this.debug = false;
+    this.debug = config.debug;
     this.bindEvents();
   }
 

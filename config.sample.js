@@ -1,4 +1,5 @@
 module.exports = {
+  'debug': false,
   'machines': [
     {
       'name': 'My Server',
