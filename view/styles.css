@@ -28,7 +28,8 @@ body {
   flex: 1;
   overflow-y: auto;
   border-right: 1px solid #aaa;
-  box-shadow: 5px 0 5px 0 #ddd
+  box-shadow: 5px 0 5px 0 #ccc;
+  background: #2196F3;
 }
 .main {
   flex: 3;

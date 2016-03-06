@@ -17,6 +17,8 @@ class Application {
     this.mainWindow.loadURL(this.view);
     if (this.debug) {
       this.mainWindow.webContents.openDevTools();
+    } else {
+      this.mainWindow.setMenu(null);
     }
     this.mainWindow.on('closed', () => {
      this.mainWindow = null;
