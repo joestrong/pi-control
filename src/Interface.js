@@ -7,6 +7,7 @@ class Interface {
 
   constructor() {
     this.navigation = new Navigation(document.querySelector('.nav'));
+    this.bindEvents();
   }
 
   buildMain(machine) {
@@ -22,6 +23,12 @@ class Interface {
       this.nameEl.textContent = machine.name;
       this.diskUsageEl.innerHTML = 'Disk Usage: ' + parts[0] + ' / ' + parts[1] + ' - ' + parts[2];
     });
+  }
+
+  bindEvents() {
+    this.navigation.onSelect = (machine) => {
+      this.buildMain(machine);
+    };
   }
 }
 
