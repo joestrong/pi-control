@@ -13,14 +13,14 @@ class Interface {
   buildMain(machine) {
     this.nameEl = document.querySelector('.bar .name');
     this.diskUsageEl = document.querySelector('.bar .disk-usage');
+    this.nameEl.textContent = machine.name;
     const diskUsage = "df -h / | grep -v Filesystem | awk '{ print $3,$2,$5 }'";
-    let ls = exec('ssh ' + machine.host + ' ' + diskUsage, (err, data) => {
+    let ls = exec('ssh ' + machine.user + '@' + machine.host + ' ' + diskUsage, (err, data) => {
       if (err) {
         console.log(err);
         return;
       }
       let parts = data.split(' ');
-      this.nameEl.textContent = machine.name;
       this.diskUsageEl.innerHTML = 'Disk Usage: ' + parts[0] + ' / ' + parts[1] + ' - ' + parts[2];
     });
   }

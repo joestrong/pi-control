@@ -3,7 +3,8 @@ module.exports = {
   'machines': [
     {
       'name': 'My Server',
-      'host': '0.0.0.0'
+      'host': '0.0.0.0',
+      'user': 'root'
     }
   ]
 };
