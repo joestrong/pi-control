@@ -1,6 +1,7 @@
 "use strict";
 let config = require('../../config.js');
 let fs = require('fs');
+let Machine = require('../Machine.js');
 
 class Navigation {
 
@@ -10,6 +11,7 @@ class Navigation {
     this.onSelect = () => {};
     this.buildNav();
     this.bindEvents();
+    this.checkStatus();
   }
 
   buildNav() {
@@ -23,12 +25,16 @@ class Navigation {
         let el = document.createElement('div');
         let icon = document.createElement('i');
         let nameEl = document.createElement('span');
-        icon.className = 'fa fa-server';
+        let statusIcon = document.createElement('i');
+        statusIcon.className = "status";
+        icon.className = 'server';
         nameEl.textContent = machine.name;
+        nameEl.className = 'name';
         el.className = "item";
         el.setAttribute('data-id', i);
         el.appendChild(icon);
-        el.appendChild(nameEl)
+        el.appendChild(nameEl);
+        el.appendChild(statusIcon);
         this.shadowRoot.appendChild(el);
       }
     });
@@ -40,6 +46,25 @@ class Navigation {
       currentTarget.className += ' active';
       this.onSelect(config.machines[currentTarget.getAttribute('data-id')]);
     });
+  }
+
+  checkStatus() {
+      for (let i = 0; i < config.machines.length; i++) {
+        let machine = new Machine(config.machines[i]);
+        machine.ping((err, data) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+
+          let itemStatus = this.shadowRoot.querySelector('.item[data-id="' + i + '"] i.status');
+          if (data.alive === true) {
+            itemStatus.classList.add('on');
+          } else {
+            itemStatus.classList.remove('on');
+          }
+        });
+      }
   }
 }
 

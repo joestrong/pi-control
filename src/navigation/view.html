@@ -26,11 +26,24 @@
     background: #42A5F5;
     border-left: 5px solid #1976D2;
   }
-  .item i.fa.fa-server {
+  .item .name {
+    flex: 1;
+  }
+  .item i.server {
     display: block;
     width: 20px;
     margin-right: 10px;
     background: url('../src/navigation/server.svg') no-repeat center center;
     background-size: contain;
+  }
+  .item i.status {
+    display: block;
+    width: 20px;
+    margin-left: 10px;
+    background: url('../src/navigation/status-off.svg') no-repeat center center;
+    background-size: contain;
+  }
+  .item i.status.on {
+    background-image: url('../src/navigation/status-on.svg');
   }
 </style>
