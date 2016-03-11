@@ -43,7 +43,11 @@ class Navigation {
   bindEvents() {
     this.shadowRoot.addEventListener('click', (e) => {
       let currentTarget = (e.target.classList.contains('item')) ? e.target : e.target.parentElement;
-      currentTarget.className += ' active';
+      let items = this.shadowRoot.querySelectorAll('.item');
+      Array.prototype.forEach.call(items, (item) => {
+        item.classList.remove('active');
+      });
+      currentTarget.classList.add('active');
       this.onSelect(config.machines[currentTarget.getAttribute('data-id')]);
     });
   }
